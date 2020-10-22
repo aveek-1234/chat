@@ -1,4 +1,4 @@
-var io= require('socket.io')(process.env.PORT|| 8000);
+var io= require('socket.io')( 8000 || process.env.PORT||);
 var users ={};
 io.on('connection',socket=>{
     socket.on('new-user-joined',name=>{
