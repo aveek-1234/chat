@@ -1,5 +1,5 @@
 
-var socket = io(process.env.PORT||'http://localhost:8000');
+var socket = io('process.env.PORT'||'http://localhost:8000');
 const form = document.getElementById('send-container');
 const messageInput=document.getElementById('messageInp');
 
