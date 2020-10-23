@@ -1,4 +1,16 @@
-var io= require('socket.io')( 'process.env.PORT' || '8000');
+var PORT = process.env.PORT || 8000;
+var express = require('express');
+var app = express();
+
+var http = require('http');
+var server = http.Server(app);
+
+app.use(express.static('client'));
+
+server.listen(PORT, function() {
+  console.log('Chat server running');
+});
+var io= require('socket.io')( server);
 var users ={};
 io.on('connection',socket=>{
     socket.on('new-user-joined',name=>{
